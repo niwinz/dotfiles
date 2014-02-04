@@ -9,7 +9,7 @@
 (setq column-number-mode t
       size-indication-mode t)
 
-(projectile-global-mode)
+
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -25,3 +25,15 @@
   (interactive "P")
   (display-buffer (list-buffers-noselect arg))
   (other-window 1))
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+(require 'ido-ubiquitous)
+(ido-at-point-mode)
+
+;; comment and uncomment
+(global-set-key (kbd "C-c C-c") 'comment-region)
+(global-set-key (kbd "C-c C-u") 'uncomment-region)
+(projectile-global-mode)
+(ido-vertical-mode)
