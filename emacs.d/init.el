@@ -38,7 +38,7 @@
 (ido-at-point-mode)
 
 ;; Projectile
-(projectile-global-mode)
+;;(projectile-global-mode)
 
 ;; comment and uncomment
 (defun comment-or-uncomment-block ()
