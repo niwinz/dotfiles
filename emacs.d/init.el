@@ -90,8 +90,15 @@
 (global-set-key "\M-;" 'comment-dwim-line)
 (global-font-lock-mode 1)
 
+;; TODO: should be moved on a hook
 (require 'groovy-mode)
 (require 'groovy-electric)
+
+(add-hook 'html-mode-hook
+          (lambda ()
+            ;; Default indentation is usually 2 spaces, changing to 4.
+            (set (make-local-variable 'sgml-basic-offset) 4)))
+
 
 ;; ;; turn on syntax highlighting
 
