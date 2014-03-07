@@ -24,7 +24,13 @@
 (setq column-number-mode t
       size-indication-mode t)
 
-;; Overwrite list-buffers function
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+
 (defun list-buffers (&optional arg)
   (interactive "P")
   (display-buffer (list-buffers-noselect arg))
