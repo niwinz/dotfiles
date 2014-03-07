@@ -29,10 +29,13 @@
   (display-buffer (list-buffers-noselect arg))
   (other-window 1))
 
+(add-to-list 'auto-mode-alist '("/requirements\\.txt\\'" . conf-mode))
+
 ;; Ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
 (require 'ido-ubiquitous)
 (ido-vertical-mode)
 (ido-at-point-mode)
