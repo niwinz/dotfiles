@@ -1,4 +1,4 @@
-;; Mermelade
+;; Package management
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -6,24 +6,25 @@
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-;; Use tabs
+;; Look & Feel fixes
+
 (setq-default c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-;; White space mode
+(global-font-lock-mode 1)
 (global-whitespace-mode)
 (setq whitespace-style '(face trailing))
 
-;; Look & Feel fixes
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 (nyan-mode)
 (setq column-number-mode t
       size-indication-mode t)
 
+;; Overwrite list-buffers function
 (defun list-buffers (&optional arg)
   (interactive "P")
   (display-buffer (list-buffers-noselect arg))
@@ -35,13 +36,15 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
-
 (require 'ido-ubiquitous)
 (ido-vertical-mode)
 (ido-at-point-mode)
 
-;; Projectile
-;;(projectile-global-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Addtional functions     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;; comment and uncomment
 (defun comment-or-uncomment-block ()
@@ -59,7 +62,6 @@
                   (point))))
     (comment-or-uncomment-region start end)))
 
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-block)
 
 
 (defun quick-copy-line ()
@@ -74,47 +76,36 @@
       (kill-new (buffer-substring beg end))))
   (beginning-of-line 2))
 
+(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-block)
 (global-set-key (kbd "<f9>") 'quick-copy-line)
 
+(global-unset-key (kbd "C-z"))
 
 ;; original idea from
 ;; http://www.opensubscriber.com/message/emacs-devel@gnu.org/10971693.html
-(defun comment-dwim-line (&optional arg)
-  "Replacement for the comment-dwim command.
-  If no region is selected and current line is not blank and we are not at the end of the line,
-  then comment current line.
-  Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
-  (interactive "*P")
-  (comment-normalize-vars)
-  (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
-      (comment-or-uncomment-region (line-beginning-position) (line-end-position))
-    (comment-dwim arg)))
+;; (defun comment-dwim-line (&optional arg)
+;;   "Replacement for the comment-dwim command.
+;;   If no region is selected and current line is not blank and we are not at the end of the line,
+;;   then comment current line.
+;;   Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
+;;   (interactive "*P")
+;;   (comment-normalize-vars)
+;;   (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
+;;       (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+;;     (comment-dwim arg)))
 
-(global-set-key "\M-;" 'comment-dwim-line)
-(global-font-lock-mode 1)
+;;(global-set-key "\M-;" 'comment-dwim-line)
 
 ;; TODO: should be moved on a hook
 (require 'groovy-mode)
 (require 'groovy-electric)
 
+
+;; Hooks
+
 (add-hook 'html-mode-hook
           (lambda ()
             ;; Default indentation is usually 2 spaces, changing to 4.
             (set (make-local-variable 'sgml-basic-offset) 4)))
-
-
-;; ;; turn on syntax highlighting
-
-;; ;;; use groovy-mode when file ends in .groovy or has #!/bin/groovy at start
-;; (autoload 'groovy-mode "groovy-mode" "Major mode for editing Groovy code." t)
-;; (add-to-list 'auto-mode-alist '("\\.groovy" . groovy-mode))
-;; (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
-
-;; ;;; make Groovy mode electric by default.
-;; (add-hook 'groovy-mode-hook
-;;           '(lambda ()
-;;              (require 'groovy-electric)
-;;              (groovy-electric-mode)))
-
 
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . html-mode))
