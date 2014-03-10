@@ -46,6 +46,11 @@
 (ido-vertical-mode)
 (ido-at-point-mode)
 
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (setq
+              venv-location "~/.virtualenvs")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Addtional functions     ;;
@@ -82,10 +87,12 @@
       (kill-new (buffer-substring beg end))))
   (beginning-of-line 2))
 
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-block)
 (global-set-key (kbd "<f9>") 'quick-copy-line)
+(global-set-key (kbd "<f10>") 'kill-whole-line)
 
 (global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-block)
+(global-set-key (kbd "C-z C-z") 'comment-or-uncomment-block)
 
 ;; original idea from
 ;; http://www.opensubscriber.com/message/emacs-devel@gnu.org/10971693.html
@@ -106,7 +113,6 @@
 (require 'groovy-mode)
 (require 'groovy-electric)
 
-
 ;; Hooks
 
 (add-hook 'html-mode-hook
@@ -115,3 +121,9 @@
             (set (make-local-variable 'sgml-basic-offset) 4)))
 
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . html-mode))
+
+;; Abbrevs
+(setq-default abbrev-mode t)
+(setq abbrev-file-name             ;; tell emacs where to read abbrev
+        "~/.emacs.d/abbrev_defs")
+(setq save-abbrevs t)
