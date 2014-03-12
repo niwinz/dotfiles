@@ -113,5 +113,7 @@ case $TERM in
 	;; 
 esac
 
+bindkey -e
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 #[[ -s "/home/niwi/.gvm/bin/gvm-init.sh" ]] && source "/home/niwi/.gvm/bin/gvm-init.sh"*/
