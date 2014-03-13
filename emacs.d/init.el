@@ -15,6 +15,7 @@
 (global-font-lock-mode 1)
 (global-whitespace-mode)
 (setq whitespace-style '(face trailing))
+(setq dabbrev-case-fold-search nil)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
