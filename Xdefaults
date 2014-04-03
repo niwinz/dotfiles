@@ -33,6 +33,7 @@ URxvt.borderLess:           false
 URxvt.externalBorder:       0
 URxvt.internalBorder:       2
 URxvt.lineSpace:            0
+URxvt.pastableTabs:         false
 
 ! Fonts
 URxvt.allow_bold:           true
