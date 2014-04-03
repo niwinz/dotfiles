@@ -7,7 +7,7 @@ export PGCLIENTENCODING="utf8"
 export PATH="/home/niwi/bin:$PATH"
 
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.3"
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.4"
 source /usr/bin/virtualenvwrapper.sh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
