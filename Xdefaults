@@ -2,6 +2,11 @@
 ! Xft settings
 !-------------------------------------------------------------------------------
 
+
+URxvt*title:                urxvt
+URxvt*termName:             rxvt-256color
+!URxvt*termName:             screen-256color
+
 Xft.dpi:                    96
 Xft.antialias:              true
 Xft.rgba:                   rgb
@@ -9,15 +14,6 @@ Xft.hinting:                true
 Xft.hintstyle:              hintslight
 #Xft.hintstyle:           3
 
-!-------------------------------------------------------------------------------
-! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!-------------------------------------------------------------------------------
-
-
-URxvt*termName:             screen-256color
 ! URxvt*scrollBar_right:      false
 URxvt.buffered:             true
 URxvt.depth:                32
@@ -35,11 +31,16 @@ URxvt.internalBorder:       2
 URxvt.lineSpace:            0
 URxvt.pastableTabs:         false
 
+! New
+urxvt*shading:                  10
+Xcursor.theme:Vanilla-DMZ-AA
+
+urxvt*inheritPixmap:    true
+
 ! Fonts
 URxvt.allow_bold:           true
 URxvt*font: xft:Anonymous Pro:size=11
 emacs*font: Anonymous Pro:size=14
-
 
 
 ! Fix font space
@@ -58,69 +59,26 @@ URxvt.urlLauncher:          chromium
 URxvt.cursorBlink:          true
 URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
-
+URxvt.pastableTabs:         false
 ! Pointer
 URxvt.pointerBlank:         true
 
-! !!Source http://github.com/altercation/solarized
-! 
-! urxvt*background: #002b36
-! ! urxvt*foreground: #657b83
-! urxvt*foreground: #AEB6B8
-! urxvt*fading: 40
-! urxvt*fadeColor: #002b36
-! urxvt*cursorColor: #93a1a1
-! urxvt*pointerColorBackground: #586e75
-! urxvt*pointerColorForeground: #93a1a1
-! 
-! !! black dark/light
-! urxvt*color0: #073642
-! urxvt*color8: #002b36
-! 
-! !! red dark/light
-! urxvt*color1: #dc322f
-! urxvt*color9: #cb4b16
-! 
-! !! green dark/light
-! urxvt*color2: #859900
-! urxvt*color10: #586e75
-! 
-! !! yellow dark/light
-! urxvt*color3: #b58900
-! urxvt*color11: #657b83
-! 
-! !! blue dark/light
-! urxvt*color4: #268bd2
-! urxvt*color12: #839496
-! 
-! !! magenta dark/light
-! urxvt*color5: #d33682
-! urxvt*color13: #6c71c4
-! 
-! !! cyan dark/light
-! urxvt*color6: #2aa198
-! urxvt*color14: #93a1a1
-! 
-! !! white dark/light
-! urxvt*color7: #eee8d5
-! urxvt*color15: #fdf6e3
-
 # Colors
-URxvt*background: #131313
-URxvt*foreground: #babdb6
-URxvt*color0:  #000000
-URxvt*color8:  #555753
-URxvt*color1:  #ff6565
-URxvt*color9:  #ff8d8d
-URxvt*color2:  #93d44f
-URxvt*color10: #c8e7a8
-URxvt*color3:  #eab93d
-URxvt*color11: #ffc123
-URxvt*color4:  #204a87
-URxvt*color12: #3465a4
-URxvt*color5:  #ce5c00
-URxvt*color13: #f57900
-URxvt*color6:  #89b6e2
-URxvt*color14: #46a4ff
-URxvt*color7:  #444444
-URxvt*color15: #ffffff
+*background: #131313
+*foreground: #babdb5
+*color0:  #000000
+*color8:  #555753
+*color1:  #ff6565
+*color9:  #ff8d8d
+*color2:  #93d44f
+*color10: #c8e7a8
+*color3:  #eab93d
+*color11: #ffc123
+*color4:  #204a87
+*color12: #3465a4
+*color5:  #ce5c00
+*color13: #f57900
+*color6:  #89b6e2
+*color14: #46a4ff
+*color7:  #444444
+*color15: #ffffff

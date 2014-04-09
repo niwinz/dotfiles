@@ -15,7 +15,10 @@
 (global-whitespace-mode)
 (setq whitespace-style '(face trailing))
 (setq dabbrev-case-fold-search nil)
+(setq visible-cursor nil)
 ;; (global-font-lock-mode 1)
+
+(setq x-stretch-cursor 1)
 
 (blink-cursor-mode 0)
 (scroll-bar-mode -1)
