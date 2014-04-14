@@ -1,0 +1,13 @@
+vcodec=libx264
+g=220
+vprofile=baseline
+x264-params=level=31
+preset=faster
+qmax=25
+qmin=10
+slices=4
+threads=8
+vb=2M
+me_method=hex
+acodec=aac
+strict=-2

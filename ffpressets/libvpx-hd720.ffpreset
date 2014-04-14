@@ -1,0 +1,11 @@
+vcodec=libvpx
+g=160
+quality=best
+qmax=22
+qmin=2
+profile=1
+crf=2
+vb=1M
+slices=4
+threads=8
+acodec=libvorbis

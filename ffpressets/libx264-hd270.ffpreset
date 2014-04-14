@@ -1,0 +1,12 @@
+vcodec=libx264
+g=240
+vprofile=main
+preset=placebo
+qmax=30
+qmin=20
+slices=4
+threads=4
+vb=900k
+strict=-2
+ab=128k
+acodec=aac

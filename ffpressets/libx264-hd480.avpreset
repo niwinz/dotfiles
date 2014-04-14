@@ -1,0 +1,12 @@
+vcodec=libx264
+g=220
+vprofile=baseline
+preset=slow
+qmax=30
+qmin=15
+slices=4
+threads=4
+vb=1000k
+strict=-2
+ab=64k
+acodec=aac
