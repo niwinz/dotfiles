@@ -24,6 +24,8 @@
 (setq column-number-mode t
       size-indication-mode t)
 
+(global-whitespace-mode)
+(setq whitespace-style '(face trailing))
 
 ;; Backup temporal directories
 (setq backup-directory-alist
