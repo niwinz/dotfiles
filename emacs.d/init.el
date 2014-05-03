@@ -11,13 +11,8 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default visible-cursor nil)
-
-(global-whitespace-mode)
-(setq whitespace-style '(face trailing))
 (setq dabbrev-case-fold-search nil)
 (setq visible-cursor nil)
-;; (global-font-lock-mode 1)
-
 (setq x-stretch-cursor 1)
 
 (blink-cursor-mode 0)
