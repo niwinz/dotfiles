@@ -35,7 +35,6 @@
       `((".*" ,temporary-file-directory t)))
 
 
-
 ;; Ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -43,6 +42,19 @@
 (require 'ido-ubiquitous)
 (ido-vertical-mode)
 (ido-at-point-mode)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Hooks                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(add-hook 'clojure-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (define-clojure-indent
+               ;; built-ins
+               (maybe-let 1))))
+
 
 (add-hook 'python-mode-hook
           '(lambda ()
