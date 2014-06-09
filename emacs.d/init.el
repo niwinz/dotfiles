@@ -53,7 +53,8 @@
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
              (define-clojure-indent
                ;; built-ins
-               (maybe-let 1))))
+               (maybe-let 1)
+               (mlet 1))))
 
 
 (add-hook 'python-mode-hook
@@ -113,7 +114,7 @@
 
 ;; TODO: should be moved on a hook
 (require 'groovy-mode)
-(require 'groovy-electric)
+;; (require 'groovy-electric)
 
 ;; Hooks
 (add-hook 'html-mode-hook
@@ -121,7 +122,7 @@
             ;; Default indentation is usually 2 spaces, changing to 4.
             (set (make-local-variable 'sgml-basic-offset) 4)))
 
-(add-to-list 'auto-mode-alist '("\\.jinja\\'" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.jinja\\'" . jinja2-mode))
 (add-to-list 'auto-mode-alist '("/requirements\\.txt\\'" . conf-mode))
 
 ;; Abbrevs
