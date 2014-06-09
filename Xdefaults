@@ -12,7 +12,7 @@ Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
-#Xft.hintstyle:           3
+! Xft.hintstyle:           3
 
 ! URxvt*scrollBar_right:      false
 URxvt.buffered:             true
@@ -33,14 +33,14 @@ URxvt.pastableTabs:         false
 
 ! New
 urxvt*shading:                  10
-Xcursor.theme:Vanilla-DMZ-AA
+! Xcursor.theme:Vanilla-DMZ-AA
 
 urxvt*inheritPixmap:    true
 
 ! Fonts
 URxvt.allow_bold:           true
 URxvt*font: xft:Anonymous Pro:size=11
-emacs*font: Anonymous Pro:size=14
+emacs*font: Anonymous Pro:size=22
 
 
 ! Fix font space
@@ -59,11 +59,11 @@ URxvt.urlLauncher:          chromium
 URxvt.cursorBlink:          true
 URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
-URxvt.pastableTabs:         false
+! URxvt.pastableTabs:         false
 ! Pointer
 URxvt.pointerBlank:         true
 
-# Colors
+! Colors
 *background: #131313
 *foreground: #babdb5
 *color0:  #000000

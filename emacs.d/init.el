@@ -113,7 +113,7 @@
 
 
 ;; TODO: should be moved on a hook
-(require 'groovy-mode)
+;; (require 'groovy-mode)
 ;; (require 'groovy-electric)
 
 ;; Hooks
