@@ -40,7 +40,7 @@ urxvt*inheritPixmap:    true
 ! Fonts
 URxvt.allow_bold:           true
 URxvt*font: xft:Anonymous Pro:size=11
-emacs*font: Anonymous Pro:size=22
+emacs*font: Anonymous Pro:size=16
 
 
 ! Fix font space

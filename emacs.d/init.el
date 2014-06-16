@@ -122,6 +122,7 @@
             ;; Default indentation is usually 2 spaces, changing to 4.
             (set (make-local-variable 'sgml-basic-offset) 4)))
 
+(add-to-list 'auto-mode-alist '("\\.cljx\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . jinja2-mode))
 (add-to-list 'auto-mode-alist '("/requirements\\.txt\\'" . conf-mode))
 
