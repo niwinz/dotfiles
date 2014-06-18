@@ -48,6 +48,16 @@
 ;; Hooks                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(add-hook 'jade-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (setq sws-tab-width 4)))
+
+(add-hook 'coffee-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (setq sws-tab-width 4)))
+
 (add-hook 'clojure-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
@@ -55,7 +65,6 @@
                ;; built-ins
                (maybe-let 1)
                (mlet 1))))
-
 
 (add-hook 'python-mode-hook
           '(lambda ()
