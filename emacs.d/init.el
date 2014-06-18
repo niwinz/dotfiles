@@ -25,6 +25,8 @@
       size-indication-mode t)
 
 (global-whitespace-mode)
+(global-font-lock-mode t)
+
 (setq whitespace-style '(face trailing))
 
 ;; Backup temporal directories
@@ -33,7 +35,6 @@
 
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-
 
 ;; Ido mode
 (setq ido-enable-flex-matching t)
@@ -55,8 +56,7 @@
 
 (add-hook 'coffee-mode-hook
           '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
-             (setq sws-tab-width 4)))
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
 
 (add-hook 'clojure-mode-hook
           '(lambda ()
@@ -111,11 +111,10 @@
 ;; (global-set-key (kbd "<f10>") 'kill-whole-line)
 
 (global-unset-key (kbd "C-z"))
-(global-set-key (kbd "C-z C-z") 'comment-or-uncomment-block)
-
 (global-unset-key (kbd "C-k"))
 (global-unset-key (kbd "C-l"))
 
+(global-set-key (kbd "C-z C-z") 'comment-or-uncomment-block)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-l") 'quick-copy-line)
 (global-set-key (kbd "C-c C-k") 'kill-line)
