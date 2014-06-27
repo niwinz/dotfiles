@@ -27,6 +27,9 @@
 (global-whitespace-mode)
 (global-font-lock-mode t)
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
 (setq whitespace-style '(face trailing))
 
 ;; Backup temporal directories
