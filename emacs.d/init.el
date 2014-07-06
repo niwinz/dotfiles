@@ -15,6 +15,10 @@
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
 
+(prefer-coding-system 'utf-8-unix)
+(setq coding-system-for-read 'utf-8-unix)
+(setq coding-system-for-write 'utf-8-unix)
+
 (blink-cursor-mode 0)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -64,6 +68,15 @@
 (add-hook 'clojure-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (define-clojure-indent
+               (defroutes 'defun)
+               (GET 2)
+               (POST 2)
+               (PUT 2)
+               (DELETE 2)
+               (HEAD 2)
+               (ANY 2)
+               (context 2))
              (define-clojure-indent
                ;; built-ins
                (maybe-let 1)
