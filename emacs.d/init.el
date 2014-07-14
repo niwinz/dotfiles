@@ -68,6 +68,7 @@
 (add-hook 'clojure-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (show-paren-mode)
              (define-clojure-indent
                (defroutes 'defun)
                (GET 2)
@@ -110,7 +111,6 @@
     (comment-or-uncomment-region start end)))
 
 
-
 (defun quick-copy-line ()
   "Copy the whole line that point is on and move to the beginning of the next line.
     Consecutive calls to this command append each line to the
@@ -135,17 +135,13 @@
 (global-set-key (kbd "C-l") 'quick-copy-line)
 (global-set-key (kbd "C-c C-k") 'kill-line)
 
-
-;; TODO: should be moved on a hook
-;; (require 'groovy-mode)
-;; (require 'groovy-electric)
-
 ;; Hooks
 (add-hook 'html-mode-hook
           (lambda ()
             ;; Default indentation is usually 2 spaces, changing to 4.
             (set (make-local-variable 'sgml-basic-offset) 4)))
 
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
 (add-to-list 'auto-mode-alist '("\\.cljx\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . jinja2-mode))
 (add-to-list 'auto-mode-alist '("/requirements\\.txt\\'" . conf-mode))
