@@ -11,6 +11,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default visible-cursor nil)
+(setq make-backup-files nil)
 (setq dabbrev-case-fold-search nil)
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
