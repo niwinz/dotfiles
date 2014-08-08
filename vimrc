@@ -32,7 +32,9 @@ set incsearch
 set fileencoding=utf8
 set encoding=utf8
 
+
 au BufWritePre *.cpp,*.h,*.py,*.*pp,*.js,*.html,*.less,*.css,*.md,*.rst,*.clj,*.cljs :%s/\s\+$//e
+
 
 " Python settings
 au BufRead,BufNewFile *.py,*pyw set textwidth=140
@@ -44,6 +46,7 @@ au BufNewFile *.py 0r ~/.vim/skeleton/python.py
 "set linebreak
 " note trailing space at end of next line
 "set showbreak=>\ \ \
+
 
 " File type settings
 au BufRead,BufNewFile *.json set filetype=javascript
