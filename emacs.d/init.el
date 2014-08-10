@@ -15,7 +15,7 @@
 (setq dabbrev-case-fold-search nil)
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
-(setq make-backup-files nil)
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 (electric-indent-mode -1)
 (blink-cursor-mode 0)
