@@ -1,0 +1,75 @@
+;; Mermelade
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+(setq column-number-mode t
+      size-indication-mode t
+      show-trailing-whitespace t)
+
+;; Whitespace mode
+(global-whitespace-mode)    
+(setq whitespace-style '(face tabs lines trailing))
+(setq whitespace-line-column 110)
+(setq whitespace-action "auto-cleanup")
+;; (setq-default indicate-empty-lines)
+;; (setq whitespace-style '(face trailing))
+
+;;lines space-before-tab newline indentation empty space-after-tab space-mark tab-mark newline-mark))
+
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(load-theme 'solarized-dark t)
+(nyan-mode)
+;; (require 'pretty-mode)
+;; (global-pretty-mode 1)
+;; (add-hook 'my-pretty-language-hook 'turn-on-pretty-mode)
+
+
+(defun list-buffers (&optional arg)    
+  (interactive "P")
+  (display-buffer (list-buffers-noselect arg))
+  (other-window 1))
+
+;; ;; Shortcut for remove tabs manually
+;; (defun remove-all-tabs (&optional arg)
+;;   (mark-whole-buffer)
+;;   (untabify))
+
+;; (global-set-key (kbd "C-q") 'remove-all-tabs)
+
+;; Ido: file finder
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+(require 'ido-ubiquitous)
+(ido-at-point-mode)
+
+;; comment and uncomment
+(global-set-key (kbd "C-c C-c") 'comment-region)
+(global-set-key (kbd "C-c C-u") 'uncomment-region)
+(projectile-global-mode)
+(ido-vertical-mode)
+
+;; Indentantion and tabs
+(setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+ 
+(global-subword-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(whitespace-action "auto-cleanup"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
