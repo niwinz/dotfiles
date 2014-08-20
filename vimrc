@@ -36,7 +36,6 @@ au BufWritePre *.cpp,*.h,*.py,*.*pp,*.js,*.html,*.less,*.css,*.md,*.rst,*.clj,*.
 
 " Python settings
 au BufRead,BufNewFile *.py,*pyw set textwidth=140
-au BufNewFile *.py 0r ~/.vim/skeleton/python.py
 
 " Line wrapping (?)
 "set wrap
@@ -58,6 +57,7 @@ source ~/.vim/bindings.vim
 " au InsertLeave,BufWinEnter,BufRead,BufNewFile * colorscheme solarized
 "colorscheme desert
 " au BufRead,BufNewFile * colorscheme desert
+
 
 " Extra whitespace mark & remove
 hi ExtraWhitespace ctermbg=red guibg=red
