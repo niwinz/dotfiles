@@ -24,6 +24,9 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (load-theme 'misterioso t)
+
+
+(require 'nyan-mode)
 (nyan-mode)
 (setq column-number-mode t
       size-indication-mode t)
@@ -82,6 +85,10 @@
                ;; built-ins
                (maybe-let 1)
                (mlet 1))))
+
+(add-hook 'sass-mode-hook
+          '(lambda ()
+             (setq sass-indent-offset 4)))
 
 (add-hook 'python-mode-hook
           '(lambda ()
