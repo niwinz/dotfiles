@@ -62,7 +62,7 @@
 (add-hook 'jade-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
-             (setq sws-tab-width 4)))
+             (setq sws-tab-width 2)))
 
 (add-hook 'coffee-mode-hook
           '(lambda ()
@@ -146,7 +146,7 @@
 (add-hook 'html-mode-hook
           (lambda ()
             ;; Default indentation is usually 2 spaces, changing to 4.
-            (set (make-local-variable 'sgml-basic-offset) 4)))
+            (set (make-local-variable 'sgml-basic-offset) 2)))
 
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
 (add-to-list 'auto-mode-alist '("\\.cljx\\'" . clojure-mode))
