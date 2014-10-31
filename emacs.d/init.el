@@ -88,7 +88,10 @@
 
 (add-hook 'sass-mode-hook
           '(lambda ()
-             (setq sass-indent-offset 4)))
+             (setq sass-indent-offset 4)
+             (setq haml-indent-offset 4)
+             (electric-indent-mode -1)))
+
 
 (add-hook 'python-mode-hook
           '(lambda ()
