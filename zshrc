@@ -23,8 +23,8 @@ prompt zefram
 
 function randomdir {
     echo $RANDOM
-    X=$(ls --color=never -1 |grep "/$"); 
-    LN=$(echo $X |wc -l); 
+    X=$(ls --color=never -1 |grep "/$");
+    LN=$(echo $X |wc -l);
     SELECTED=$(echo "($RANDOM * $LN) / 32767" | bc); 
     echo "selected $SELECTED"
     echo $X | head -n $SELECTED | tail -n 1
