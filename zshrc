@@ -35,7 +35,7 @@ function randomdir {
 #------------------------------
 ## Comp stuff
 ##------------------------------
-zmodload zsh/complist 
+zmodload zsh/complist
 autoload -Uz compinit
 compinit
 zstyle :compinstall filename '${HOME}/.zshrc'
