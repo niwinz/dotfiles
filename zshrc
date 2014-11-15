@@ -52,7 +52,7 @@ zstyle ':completion:*:killall:*'   force-list always
 #------------------------------
 # Alias stuff
 #------------------------------
-alias ls="ls --color -F" 
+alias ls="ls --color -F"
 alias ll="ls --color -lh"
 alias 'lsd'='ls -d *(/)'
 alias 'lsf'='ls -h *(.)'
