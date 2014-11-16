@@ -103,7 +103,7 @@ case $TERM in
 		preexec () { print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~] ($1)\a" }
 	;;
     screen)
-    	precmd () { 
+    	precmd () {
 			print -Pn "\e]83;title \"$1\"\a" 
 			print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a" 
 		}
