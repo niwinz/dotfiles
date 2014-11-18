@@ -96,6 +96,8 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (electric-indent-mode -1)
+             (show-paren-mode)
              (setq
               venv-location "~/.virtualenvs")))
 
