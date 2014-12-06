@@ -15,6 +15,12 @@
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
 
+;; Scrolling
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+;;(setq scroll-step 1) ;; keyboard scroll one line at a time
+
 (prefer-coding-system 'utf-8-unix)
 (setq coding-system-for-read 'utf-8-unix)
 (setq coding-system-for-write 'utf-8-unix)
@@ -72,6 +78,8 @@
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
              (show-paren-mode)
+             ;; (setq clojure-defun-style-default-indent t)
+             (electric-indent-mode -1)
              (define-clojure-indent
                (defroutes 'defun)
                (GET 2)
@@ -100,6 +108,12 @@
              (show-paren-mode)
              (setq
               venv-location "~/.virtualenvs")))
+
+(add-hook 'typescript-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (electric-indent-mode -1)
+             (show-paren-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Addtional functions     ;;
