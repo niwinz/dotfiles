@@ -29,7 +29,8 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(load-theme 'misterioso t)
+;; (load-theme 'misterioso t)
+(load-theme 'whiteboard t)
 
 
 (require 'nyan-mode)
@@ -160,6 +161,9 @@
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-l") 'quick-copy-line)
 (global-set-key (kbd "C-c C-k") 'kill-line)
+
+(global-set-key (kbd "C-x +") 'text-scale-increase)
+(global-set-key (kbd "C-x -") 'text-scale-decrease)
 
 ;; Hooks
 (add-hook 'html-mode-hook
