@@ -82,6 +82,8 @@
              (electric-indent-mode -1)
              (define-clojure-indent
                (defroutes 'defun)
+               (it 'defun)
+               (describe 'defun)
                (GET 2)
                (POST 2)
                (PUT 2)
@@ -91,6 +93,7 @@
                (context 2))
              (define-clojure-indent
                ;; built-ins
+               (dom/ 0)
                (maybe-let 1)
                (mlet 1))))
 
