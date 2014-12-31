@@ -88,13 +88,13 @@ setopt hist_ignore_space
 #------------------------------
 case $TERM in
     *xterm*|rxvt|rxvt-unicode|rxvt-256color|(dt|k|E)term)
-		precmd () { print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a" } 
+		precmd () { print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a" }
 		preexec () { print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~] ($1)\a" }
 	;;
     screen)
     	precmd () {
 			print -Pn "\e]83;title \"$1\"\a"
-			print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a" 
+			print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a"
 		}
 		preexec () {
 			print -Pn "\e]83;title \"$1\"\a"
