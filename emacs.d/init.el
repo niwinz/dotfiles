@@ -84,6 +84,8 @@
              (electric-indent-mode -1)
              (define-clojure-indent
                (defroutes 'defun)
+               (it 'defun)
+               (describe 'defun)
                (GET 2)
                (POST 2)
                (PUT 2)
@@ -94,6 +96,7 @@
              (define-clojure-indent
                (it 1)
                (errlet 1)
+               (maybe-let 1)
                (mlet 1))))
 
 (add-hook 'sass-mode-hook
