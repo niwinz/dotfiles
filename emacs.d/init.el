@@ -61,6 +61,7 @@
 (ido-vertical-mode)
 (ido-at-point-mode)
 
+(electric-indent-mode -1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks                   ;;
@@ -91,8 +92,8 @@
                (ANY 2)
                (context 2))
              (define-clojure-indent
-               ;; built-ins
-               (maybe-let 1)
+               (it 1)
+               (errlet 1)
                (mlet 1))))
 
 (add-hook 'sass-mode-hook
@@ -107,8 +108,7 @@
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
              (electric-indent-mode -1)
              (show-paren-mode)
-             (setq
-              venv-location "~/.virtualenvs")))
+             (setq venv-location "~/.virtualenvs")))
 
 (add-hook 'typescript-mode-hook
           '(lambda ()
