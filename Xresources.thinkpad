@@ -1,0 +1,85 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+
+URxvt*title:                urxvt
+URxvt*termName:             rxvt-256color
+!URxvt*termName:             screen-256color
+
+Xft.dpi:                    96
+! Xft.lcdfilter:              lcddefault
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+! Xft.autohint:               0
+! Xft.hintstyle:              hintfull
+
+! URxvt*scrollBar_right:      false
+URxvt.buffered:             true
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            10024
+
+URxvt.borderLess:           false
+URxvt.externalBorder:       0
+URxvt.internalBorder:       2
+URxvt.lineSpace:            0
+URxvt.pastableTabs:         false
+
+! New
+urxvt*shading:                  10
+! Xcursor.theme:Vanilla-DMZ-AA
+
+urxvt*inheritPixmap:    true
+
+! Fonts
+URxvt.allow_bold:           true
+URxvt*font: xft:Anonymous Pro:size=16
+emacs*font: Anonymous Pro:size=16
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          chromium
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+! URxvt.pastableTabs:         false
+! Pointer
+URxvt.pointerBlank:         true
+
+! Colors
+*background: #131313
+*foreground: #babdb5
+*color0:  #000000
+*color8:  #555753
+*color1:  #ff6565
+*color9:  #ff8d8d
+*color2:  #93d44f
+*color10: #c8e7a8
+*color3:  #eab93d
+*color11: #ffc123
+*color4:  #204a87
+*color12: #3465a4
+*color5:  #ce5c00
+*color13: #f57900
+*color6:  #89b6e2
+*color14: #46a4ff
+*color7:  #444444
+*color15: #ffffff
