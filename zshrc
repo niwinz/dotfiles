@@ -4,7 +4,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL=""
 export EDITOR=vim
 export PGCLIENTENCODING="utf8"
-export PATH="/home/niwi/bin:/home/niwi/.gem/ruby/2.1.0/bin:/home/niwi/.local/bin:$PATH"
+export PATH="/home/niwi/bin:/home/niwi/.gem/ruby/2.2.0/bin:/home/niwi/.local/bin:$PATH"
 
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.4"
