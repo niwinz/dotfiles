@@ -14,6 +14,18 @@
 (setq dabbrev-case-fold-search nil)
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
+(setq make-backup-files nil)
+
+(electric-indent-mode -1)
+(blink-cursor-mode 0)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(setq inhibit-splash-screen t)
+
+;; Theme
+;; (load-theme 'misterioso t)
+(load-theme 'whiteboard t)
 
 ;; Scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
@@ -21,30 +33,25 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 ;;(setq scroll-step 1) ;; keyboard scroll one line at a time
 
+;; Whitespace mode
+(global-whitespace-mode)
+(global-font-lock-mode t)
+(setq whitespace-style '(face trailing))
+
+;; Encoding
 (prefer-coding-system 'utf-8-unix)
 (setq coding-system-for-read 'utf-8-unix)
 (setq coding-system-for-write 'utf-8-unix)
 
-(blink-cursor-mode 0)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-;; (load-theme 'misterioso t)
-(load-theme 'whiteboard t)
+;; Buffer name style
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
 
-
+;; Nyan Cat
 (require 'nyan-mode)
 (nyan-mode)
 (setq column-number-mode t
       size-indication-mode t)
-
-(global-whitespace-mode)
-(global-font-lock-mode t)
-
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward)
-
-(setq whitespace-style '(face trailing))
 
 ;; Backup temporal directories
 (setq backup-directory-alist
@@ -60,8 +67,6 @@
 (require 'ido-ubiquitous)
 (ido-vertical-mode)
 (ido-at-point-mode)
-
-(electric-indent-mode -1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks                   ;;
