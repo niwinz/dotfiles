@@ -3,6 +3,8 @@ setxkbmap -layout us,es -variant altgr-intl, -option grp:rwin_toggle -option grp
 #export GVM_INIT=false
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+eval $(ssh-agent)
+ssh-add
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
