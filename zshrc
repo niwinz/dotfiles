@@ -47,8 +47,6 @@ alias 'lsd'='ls -d *(/)'
 alias 'lsf'='ls -h *(.)'
 alias 'rm'='rm -r'
 alias 'cp'='cp -r'
-alias 'term'='xterm -bg black -fg white'
-alias 'pdf'='evince'
 alias 'l'='ls --color -GFlh'
 alias 'mplayerhdmi'='mplayer -ao alsa:device=hw=0.8'
 
