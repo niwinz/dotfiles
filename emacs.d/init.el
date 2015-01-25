@@ -103,6 +103,7 @@
                (it 1)
                (errlet 1)
                (maybe-let 1)
+               (atomic 'defun)
                (mlet 1))))
 
 (add-hook 'sass-mode-hook
