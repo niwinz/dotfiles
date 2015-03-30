@@ -110,3 +110,6 @@ bindkey -e
 LEIN_FAST_TRAMPOLINE=y
 export LEIN_FAST_TRAMPOLINE
 alias cljsbuild="lein trampoline cljsbuild $@"
+alias docker-clean="docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm"
+
+source ~/.nvm/nvm.sh

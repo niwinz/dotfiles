@@ -55,16 +55,12 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
 
-;; Web Mode
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(setq web-mode-engines-alist
-      '(("django"    . "\\.html\\'")))
-
-(setq web-mode-markup-indent-offset 2)
-(setq web-mode-code-indent-offset 2)
-;; (setq web-mode-enable-current-column-highlight t)
-;; (setq web-mode-enable-current-element-highlight t)
+;; String formating
+;; (require 'string-inflection)
+;; (global-set-key (kbd "C-c i") 'string-inflection-cycle)
+;; (global-set-key (kbd "C-c C") 'string-inflection-camelcase)        ;; Force to CamelCase
+;; (global-set-key (kbd "C-c L") 'string-inflection-lower-camelcase)  ;; Force to lowerCamelCase
+;; (global-set-key (kbd "C-c J") 'string-inflection-java-style-cycle)
 
 ;; Nyan Cat
 (require 'nyan-mode)
@@ -86,6 +82,17 @@
 (require 'ido-ubiquitous)
 (ido-vertical-mode)
 (ido-at-point-mode)
+
+;; Web Mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-engines-alist
+      '(("django"    . "\\.html\\'")))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks                   ;;
@@ -117,8 +124,30 @@
                (HEAD 2)
                (ANY 2)
                (context 2))
+
+             ;; Om Specific
+             (define-clojure-indent
+               (h1 'defun)
+               (h2 'defun)
+               (h3 'defun)
+               (h4 'defun)
+               (h5 'defun)
+               (h6 'defun)
+               (div 'defun)
+               (span 'defun)
+               (section 'defun)
+               (nav 'defun)
+               (article 'defun)
+               (input 'defun)
+               (form 'defun)
+               (textarea 'defun)
+               (ul 'defun)
+               (ol 'defun)
+               (li 'defun))
+
              (define-clojure-indent
                (it 1)
+               (async 'defun)
                (errlet 1)
                (maybe-let 1)
                (atomic 'defun)
