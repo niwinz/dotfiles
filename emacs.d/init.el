@@ -23,13 +23,15 @@
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
 (setq backup-directory-alist `(("." . "~/.saves")))
+(setq confirm-kill-emacs #'y-or-n-p)
+(setq inhibit-splash-screen t)
 
 (electric-indent-mode -1)
 (blink-cursor-mode 0)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(setq inhibit-splash-screen t)
+(pending-delete-mode t)
 
 ;; Theme
 ;; (load-theme 'misterioso t)
@@ -235,6 +237,21 @@
 
 (global-set-key (kbd "C-x +") 'text-scale-increase)
 (global-set-key (kbd "C-x -") 'text-scale-decrease)
+(global-set-key (kbd "M-o") 'mode-line-other-buffer)
+
+(require 'expand-region)
+(global-set-key (kbd "C-'") 'er/expand-region)
+
+;; (require 'change-inner)
+;; (global-set-key (kbd "C-'") 'er/expand-region)
+
+;; saltar marca C-x C-x  (anterior)
+;; C-u C-space (saltar entre todas marcas anteriores)
+;; C-space dos veces deja una marca
+
+;; Usar bind-key en vez de global-set-key
+
+;; C-M-k Borrar sexpr
 
 ;; Hooks
 (add-hook 'html-mode-hook
