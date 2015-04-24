@@ -106,6 +106,21 @@
              (show-paren-mode)
              ;; (setq clojure-defun-style-default-indent t)
              (electric-indent-mode -1)
+
+             (define-clojure-indent
+               (div 'defun)
+               (header 'defun)
+               (section 'defun)
+               (li 'defun)
+               (img 'defun)
+               (article 'defun)
+               (ul 'defun)
+               (ol 'defun)
+               (i 'defun)
+               (p 'defun)
+               (a 'defun)
+               (script 'defun))
+
              (define-clojure-indent
                (defroutes 'defun)
                (it 'defun)
@@ -124,10 +139,9 @@
                (atomic 'defun)
                (mlet 1))))
 
-(add-hook 'sass-mode-hook
+(add-hook 'scss-mode-hook
           '(lambda ()
-             (setq sass-indent-offset 4)
-             (setq haml-indent-offset 4)
+             (setq css-indent-offset 2)
              (electric-indent-mode -1)))
 
 
@@ -199,7 +213,6 @@
             ;; Default indentation is usually 2 spaces, changing to 4.
             (set (make-local-variable 'sgml-basic-offset) 2)))
 
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
 (add-to-list 'auto-mode-alist '("\\.cljx\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . jinja2-mode))
 (add-to-list 'auto-mode-alist '("/requirements\\.txt\\'" . conf-mode))
