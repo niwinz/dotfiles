@@ -5,7 +5,7 @@
 ;; (add-to-list 'package-archives
 ;; 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-
+(add-to-list 'load-path "~/.emacs.d/local/")
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa" . "http://melpa.org/packages/")
@@ -88,12 +88,14 @@
 ;; Web Mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jinja\\'" . web-mode))
 
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
 (setq web-mode-engines-alist
-      '(("django"    . "\\.html\\'")))
+      '(("django"    . "\\.html\\'")
+        ("jinja"    . "\\.jinja\\'")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -260,7 +262,7 @@
             (set (make-local-variable 'sgml-basic-offset) 2)))
 
 (add-to-list 'auto-mode-alist '("\\.cljx\\'" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.jinja\\'" . jinja2-mode))
+(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("/requirements\\.txt\\'" . conf-mode))
 
 ;; Abbrevs
