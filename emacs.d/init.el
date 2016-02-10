@@ -11,6 +11,11 @@
         ("melpa" . "http://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
 
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+
 (package-initialize)
 
 ;; Look & Feel fixes
@@ -25,6 +30,7 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq confirm-kill-emacs #'y-or-n-p)
 (setq inhibit-splash-screen t)
+(setq fci-rule-column 90)
 
 (electric-indent-mode -1)
 (blink-cursor-mode 0)
@@ -56,6 +62,12 @@
 ;; Buffer name style
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
+
+;; Cider
+;; (setq cider-repl-tab-command #'indent-for-tab-command)
+;; (setq cider-auto-mode nil)
+;; (setq cider-repl-result-prefix ";; => ")
+;; (setq cider-interactive-eval-result-prefix ";; => ")
 
 ;; String formating
 ;; (require 'string-inflection)
@@ -89,107 +101,17 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
-(setq web-mode-code-indent-offset 2)
+(setq web-mode-code-indent-offset 4)
 (setq web-mode-engines-alist
       '(("django"    . "\\.html\\'")
         ("jinja"    . "\\.jinja\\'")))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Hooks                   ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(add-hook 'jade-mode-hook
-          '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
-             (setq sws-tab-width 2)))
-
-(add-hook 'coffee-mode-hook
-          '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
-
-(add-hook 'clojure-mode-hook
-          '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
-             (show-paren-mode)
-             ;; (setq clojure-defun-style-default-indent t)
-             (electric-indent-mode -1)
-
-             (define-clojure-indent
-               (div 'defun)
-               (header 'defun)
-               (section 'defun)
-               (li 'defun)
-               (img 'defun)
-               (article 'defun)
-               (ul 'defun)
-               (ol 'defun)
-               (i 'defun)
-               (p 'defun)
-               (a 'defun)
-               (script 'defun))
-
-             (define-clojure-indent
-               (defroutes 'defun)
-               (it 'defun)
-               (describe 'defun)
-               (GET 2)
-               (POST 2)
-               (PUT 2)
-               (DELETE 2)
-               (HEAD 2)
-               (ANY 2)
-               (context 2))
-
-             ;; Om Specific
-             (define-clojure-indent
-               (h1 'defun)
-               (h2 'defun)
-               (h3 'defun)
-               (h4 'defun)
-               (h5 'defun)
-               (h6 'defun)
-               (div 'defun)
-               (span 'defun)
-               (section 'defun)
-               (nav 'defun)
-               (article 'defun)
-               (input 'defun)
-               (form 'defun)
-               (textarea 'defun)
-               (ul 'defun)
-               (ol 'defun)
-               (li 'defun))
-
-             (define-clojure-indent
-               (it 1)
-               (async 'defun)
-               (errlet 1)
-               (maybe-let 1)
-               (atomic 'defun)
-               (mlet 1))))
-
-(add-hook 'scss-mode-hook
-          '(lambda ()
-             (setq css-indent-offset 2)
-             (electric-indent-mode -1)))
-
-
-(add-hook 'python-mode-hook
-          '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
-             (electric-indent-mode -1)
-             (show-paren-mode)
-             (setq venv-location "~/.virtualenvs")))
-
-(add-hook 'typescript-mode-hook
-          '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
-             (electric-indent-mode -1)
-             (show-paren-mode)))
+(setq web-mode-content-types-alist
+  '(("jsx"  . ".*\\.js[x]?\\'")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Addtional functions     ;;
@@ -255,13 +177,123 @@
 
 ;; C-M-k Borrar sexpr
 
-;; Hooks
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Hooks                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(add-hook 'js-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (show-paren-mode)
+             (setq js-indent-level 2)))
+
+
+(add-hook 'js2-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (show-paren-mode)
+             (setq js2-basic-offset 4)))
+
+(add-hook 'jade-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (setq sws-tab-width 2)))
+
+(add-hook 'coffee-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
+
+;; (require 'clojure-mode)
+(add-hook 'clojure-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (show-paren-mode)
+             ;; (setq clojure-defun-style-default-indent t)
+             (electric-indent-mode -1)
+
+             (define-clojure-indent
+               (div 'defun)
+               (header 'defun)
+               (section 'defun)
+               (li 'defun)
+               (img 'defun)
+               (article 'defun)
+               (ul 'defun)
+               (ol 'defun)
+               (i 'defun)
+               (p 'defun)
+               (a 'defun)
+               (script 'defun))
+
+             (define-clojure-indent
+               (defroutes 'defun)
+               (it 'defun)
+               (describe 'defun)
+               (GET 2)
+               (POST 2)
+               (PUT 2)
+               (DELETE 2)
+               (HEAD 2)
+               (ANY 2)
+               (context 2))
+
+             ;; Om Specific
+             (define-clojure-indent
+               (h1 'defun)
+               (h2 'defun)
+               (h3 'defun)
+               (h4 'defun)
+               (h5 'defun)
+               (h6 'defun)
+               (div 'defun)
+               (span 'defun)
+               (section 'defun)
+               (nav 'defun)
+               (article 'defun)
+               (input 'defun)
+               (form 'defun)
+               (textarea 'defun)
+               (ul 'defun)
+               (ol 'defun)
+               (li 'defun))
+
+             (define-clojure-indent
+               (it 1)
+               (async 'defun)
+               (errlet 1)
+               (maybe-let 1)
+               (atomic 'defun)
+               (alet 1)
+               (mlet 1))))
+
+(add-hook 'scss-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (setq css-indent-offset 2)
+             (electric-indent-mode -1)))
+
+
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (electric-indent-mode -1)
+             (show-paren-mode)
+             (setq venv-location "~/.virtualenvs")))
+
+(add-hook 'typescript-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (electric-indent-mode -1)
+             (show-paren-mode)))
+
+;; (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'html-mode-hook
           (lambda ()
             ;; Default indentation is usually 2 spaces, changing to 4.
             (set (make-local-variable 'sgml-basic-offset) 2)))
 
 (add-to-list 'auto-mode-alist '("\\.cljx\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljc\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("/requirements\\.txt\\'" . conf-mode))
 
@@ -270,3 +302,20 @@
 (setq abbrev-file-name             ;; tell emacs where to read abbrev
         "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   (quote
+    ((c-file-offsets
+      (innamespace . 0)
+      (inline-open . 0)
+      (case-label . +))))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
