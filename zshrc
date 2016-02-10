@@ -4,10 +4,11 @@ export LANG="en_US.UTF-8"
 export LC_ALL=""
 export EDITOR=vim
 export PGCLIENTENCODING="utf8"
-export PATH="/home/niwi/bin:/home/niwi/.gem/ruby/2.2.0/bin:/home/niwi/.local/bin:$PATH"
-
+export PATH="/home/niwi/bin:/home/niwi/.gem/ruby/2.3.0/bin:/home/niwi/.local/bin:$PATH"
+#export PULSE_LATENCY_MSEC=60
+export BOOT_CLOJURE_VERSION=1.7.0
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.4"
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.5"
 source /usr/bin/virtualenvwrapper.sh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -113,3 +114,4 @@ alias cljsbuild="lein trampoline cljsbuild $@"
 alias docker-clean="docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm"
 
 source ~/.nvm/nvm.sh
+
