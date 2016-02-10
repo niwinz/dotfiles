@@ -19,7 +19,7 @@ URxvt.geometry:             90x30
 URxvt.transparent:          false
 URxvt.fading:               0
 URxvt.loginShell:           true
-URxvt.saveLines:            10024
+URxvt.saveLines:            32767
 
 URxvt.borderLess:           false
 URxvt.externalBorder:       0
