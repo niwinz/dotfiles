@@ -152,11 +152,11 @@
 
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-k"))
-(global-unset-key (kbd "C-l"))
+;; (global-unset-key (kbd "C-l"))
 
 (global-set-key (kbd "C-z C-z") 'comment-or-uncomment-block)
 (global-set-key (kbd "C-k") 'kill-whole-line)
-(global-set-key (kbd "C-l") 'quick-copy-line)
+(global-set-key (kbd "C-;") 'quick-copy-line)
 (global-set-key (kbd "C-c C-k") 'kill-line)
 
 (global-set-key (kbd "C-x +") 'text-scale-increase)
@@ -187,6 +187,11 @@
              (show-paren-mode)
              (setq js-indent-level 2)))
 
+(add-hook 'rust-mode
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (show-paren-mode)
+             (setq rust-indent-offset 2)))
 
 (add-hook 'js2-mode-hook
           '(lambda ()
@@ -272,7 +277,6 @@
              (setq css-indent-offset 2)
              (electric-indent-mode -1)))
 
-
 (add-hook 'python-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
@@ -286,7 +290,6 @@
              (electric-indent-mode -1)
              (show-paren-mode)))
 
-;; (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'html-mode-hook
           (lambda ()
             ;; Default indentation is usually 2 spaces, changing to 4.
@@ -302,20 +305,3 @@
 (setq abbrev-file-name             ;; tell emacs where to read abbrev
         "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   (quote
-    ((c-file-offsets
-      (innamespace . 0)
-      (inline-open . 0)
-      (case-label . +))))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
