@@ -6,7 +6,9 @@ export EDITOR=vim
 export PGCLIENTENCODING="utf8"
 export PATH="/home/niwi/bin:/home/niwi/.gem/ruby/2.3.0/bin:/home/niwi/.local/bin:$PATH"
 #export PULSE_LATENCY_MSEC=60
-export BOOT_CLOJURE_VERSION=1.7.0
+export BOOT_CLOJURE_VERSION=1.8.0
+export BOOT_EMIT_TARGET=no
+export BOOT_JVM_OPTIONS="-Xms4g -Xmx4g -XX:+UseG1GC -XX:+AggressiveOpts -server"
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.5"
 source /usr/bin/virtualenvwrapper.sh
