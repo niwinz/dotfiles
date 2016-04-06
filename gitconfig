@@ -1,0 +1,43 @@
+[user]
+email = niwi@niwi.nz
+name = Andrey Antukh
+signingkey = 316A8B95
+
+[core]
+autocrlf = false
+safecrlf = true
+[alias]
+co = checkout
+ci = commit
+st = status
+br = branch
+hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+type = cat-file -t
+dump = cat-file -p
+incoming = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short master..origin/master
+outgoing = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short origin/master..master
+
+[receive]
+denyCurrentBranch = warn
+
+[color]
+ui = auto
+
+[push]
+default = simple
+
+[rebase]
+autoStash = true
+stat = true
+
+[status]
+short = true
+showUntrackedFiles = all
+
+[stash]
+showPatch = true
+
+[filter "lfs"]
+clean = git-lfs clean %f
+smudge = git-lfs smudge %f
+required = true
