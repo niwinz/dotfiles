@@ -152,11 +152,12 @@
 
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-k"))
-;; (global-unset-key (kbd "C-l"))
+(global-unset-key (kbd "C-l"))
 
 (global-set-key (kbd "C-z C-z") 'comment-or-uncomment-block)
 (global-set-key (kbd "C-k") 'kill-whole-line)
-(global-set-key (kbd "C-;") 'quick-copy-line)
+(global-set-key (kbd "C-l") 'quick-copy-line)
+(global-set-key (kbd "C-;") 'recenter-top-bottom)
 (global-set-key (kbd "C-c C-k") 'kill-line)
 
 (global-set-key (kbd "C-x +") 'text-scale-increase)
