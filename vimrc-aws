@@ -24,7 +24,3 @@ set incsearch
 
 set fileencoding=utf8
 set encoding=utf8
-
-au BufRead,BufNewFile *.json set filetype=javascript
-au BufRead,BufNewFile *.gsp set filetype=html
-au BufRead,BufNewFile *.jinja set filetype=htmldjango
