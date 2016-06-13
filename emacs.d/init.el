@@ -31,6 +31,7 @@
 (setq confirm-kill-emacs #'y-or-n-p)
 (setq inhibit-splash-screen t)
 (setq fci-rule-column 90)
+(setq fill-column 84)
 
 (electric-indent-mode -1)
 (blink-cursor-mode 0)
