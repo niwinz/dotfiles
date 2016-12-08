@@ -1,18 +1,13 @@
 ;; Package management
 (require 'package)
-;; (add-to-list 'package-archives
-;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; (add-to-list 'package-archives
-;; 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (add-to-list 'load-path "~/.emacs.d/local/")
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa" . "http://melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
+        ("org" . "http://orgmode.org/elpa/")
+        ("melpa-stable" . "http://stable.melpa.org/packages/")))
 
-(add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 ;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
@@ -23,6 +18,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default visible-cursor nil)
+(setq package-check-signature nil)
 (setq make-backup-files nil)
 (setq dabbrev-case-fold-search nil)
 (setq visible-cursor nil)
@@ -267,6 +263,7 @@
              (define-clojure-indent
                (it 1)
                (async 'defun)
+               (fdef 'defun)
                (errlet 1)
                (maybe-let 1)
                (atomic 'defun)
@@ -307,3 +304,17 @@
 (setq abbrev-file-name             ;; tell emacs where to read abbrev
         "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yaml-mode vline undo-tree typescript toml-mode stylus-mode scss-mode scala-mode rainbow-delimiters protobuf-mode nyan-mode mustache-mode multiple-cursors markdown-mode+ leuven-theme less-css-mode jsx-mode json-mode js2-mode jinja2-mode jade-mode ipython ido-vertical-mode ido-ubiquitous ido-at-point erlang elixir-mode dockerfile-mode csv-mode cmake-mode clojure-mode charmap bind-key))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
