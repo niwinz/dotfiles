@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 export LANG="en_US.UTF-8"
 export LC_ALL=""
@@ -9,6 +9,8 @@ export LD_LIBRARY_PATH=/usr/local/lib/gcc48
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
 bindkey    '^R'             history-incremental-search-backward
+
+bindkey -e
 
 autoload -U promptinit
 promptinit
@@ -28,7 +30,6 @@ compinit
 alias cp='cp -r'
 alias ls='ls -F'
 alias l='ls -Flha'
-
 
 #-----------------
 # Options
