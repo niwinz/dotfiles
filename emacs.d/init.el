@@ -13,6 +13,44 @@
 
 (package-initialize)
 
+
+(setq package-selected-packages
+      '(bind-key
+        expand-region
+        charmap
+        clojure-mode
+        cmake-mode
+        csv-mode
+        dockerfile-mode
+        elixir-mode
+        erlang
+        graphql-mode
+        ido-at-point
+        ido-ubiquitous
+        ido-vertical-mode
+        ipython
+        jade-mode
+        jinja2-mode
+        js2-mode
+        json-mode
+        jsx-mode
+        less-css-mode
+        leuven-theme
+        markdown-mode+
+        multiple-cursors
+        mustache-mode
+        nyan-mode
+        protobuf-mode
+        rainbow-delimiters
+        scala-mode
+        scss-mode
+        stylus-mode
+        toml-mode
+        typescript
+        undo-tree
+        vline
+        yaml-mode))
+
 ;; Look & Feel fixes
 (setq-default c-basic-offset 2)
 (setq-default indent-tabs-mode nil)
@@ -98,7 +136,7 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
 
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
@@ -285,6 +323,7 @@
 
 (add-hook 'typescript-mode-hook
           '(lambda ()
+             (setq typescript-indent-level 2)
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
              (electric-indent-mode -1)
              (show-paren-mode)))
@@ -311,7 +350,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode vline undo-tree typescript toml-mode stylus-mode scss-mode scala-mode rainbow-delimiters protobuf-mode nyan-mode mustache-mode multiple-cursors markdown-mode+ leuven-theme less-css-mode jsx-mode json-mode js2-mode jinja2-mode jade-mode ipython ido-vertical-mode ido-ubiquitous ido-at-point erlang elixir-mode dockerfile-mode csv-mode cmake-mode clojure-mode charmap bind-key))))
+    (graphql-mode yaml-mode vline undo-tree typescript toml-mode stylus-mode scss-mode scala-mode rainbow-delimiters protobuf-mode nyan-mode mustache-mode multiple-cursors markdown-mode+ leuven-theme less-css-mode jsx-mode json-mode js2-mode jinja2-mode jade-mode ipython ido-vertical-mode ido-ubiquitous ido-at-point erlang elixir-mode dockerfile-mode csv-mode cmake-mode clojure-mode charmap bind-key))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

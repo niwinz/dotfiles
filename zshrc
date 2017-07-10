@@ -1,17 +1,15 @@
 #!/usr/bin/env zsh
 
 export LANG="en_US.UTF-8"
-export LC_ALL=""
+export LC_COLLATE="C"
 export EDITOR=vim
 export PGCLIENTENCODING="utf8"
-export PATH="/home/niwi/bin:/home/niwi/.gem/ruby/2.3.0/bin:/home/niwi/.local/bin:$PATH"
-#export PULSE_LATENCY_MSEC=60
+export PATH="$HOME/bin:/home/niwi/.local/bin:$PATH"
+
 export BOOT_CLOJURE_VERSION=1.8.0
 export BOOT_EMIT_TARGET=no
 export BOOT_JVM_OPTIONS="-Xms4g -Xmx4g -XX:+UseG1GC -XX:+AggressiveOpts -server"
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.5"
-source /usr/bin/virtualenvwrapper.sh
+export LEIN_FAST_TRAMPOLINE=y
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export JAVA_HOME="/usr/lib/jvm/default"
@@ -116,4 +114,3 @@ alias cljsbuild="lein trampoline cljsbuild $@"
 alias docker-clean="docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm"
 
 source ~/.nvm/nvm.sh
-

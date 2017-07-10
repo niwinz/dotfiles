@@ -40,13 +40,14 @@ urxvt*inheritPixmap:    true
 
 ! Fonts
 URxvt.allow_bold:           true
-! URxvt*font: xft:Anonymous Pro:size=16
 
-!URxvt*font: xft:Monoid:size=12
-URxvt.font: xft:Monoid:size=13:antialias=true
-URxvt.boldFont: xft:Monoid:bold:size=13:antialias=true
+! URxvt.font: xft:Monoid:size=16:antialias=true
+! URxvt.boldFont: xft:Monoid:bold:size=16:antialias=true
+URxvt.font: xft:Monoid:size=11:antialias=true
+URxvt.boldFont: xft:Monoid:bold:size=11:antialias=true
 URxvt.letterSpace: -1
 
+! emacs*font: Monoid:size=18
 emacs*font: Monoid:size=16
 
 ! Scrollbar
