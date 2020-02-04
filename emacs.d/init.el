@@ -19,14 +19,15 @@
         expand-region
         charmap
         clojure-mode
-        cmake-mode
+        cmake-modea
         csv-mode
         dockerfile-mode
-        elixir-mode
+        elixir-modeg
         erlang
         graphql-mode
         ido-at-point
-        ido-ubiquitous
+        ;;ido-ubiquitous
+        ido-completing-read+
         ido-vertical-mode
         ipython
         jade-mode
@@ -61,11 +62,18 @@
 (setq dabbrev-case-fold-search nil)
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
-(setq backup-directory-alist `(("." . "~/.saves")))
+
+(setq create-lockfiles nil) 
+;; (setq backup-directory-alist `(("." . "~/.saves")))
+;; (setq backup-directory-alist
+;;       `((".*" . ,temporary-file-directory)))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,temporary-file-directory t)))
+
 (setq confirm-kill-emacs #'y-or-n-p)
 (setq inhibit-splash-screen t)
 (setq fci-rule-column 90)
-(setq fill-column 84)
+(setq fill-column 80)
 
 (electric-indent-mode -1)
 (blink-cursor-mode 0)
@@ -128,7 +136,9 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
-(require 'ido-ubiquitous)
+;;(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
+(ido-ubiquitous-mode 1)
 (ido-vertical-mode)
 (ido-at-point-mode)
 
@@ -137,6 +147,7 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jinja\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.mjs\\'" . js-mode))
 
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
@@ -223,12 +234,6 @@
              (show-paren-mode)
              (setq js-indent-level 2)))
 
-(add-hook 'rust-mode
-          '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
-             (show-paren-mode)
-             (setq rust-indent-offset 2)))
-
 (add-hook 'js2-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
@@ -240,10 +245,6 @@
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
              (setq sws-tab-width 2)))
 
-(add-hook 'coffee-mode-hook
-          '(lambda ()
-             (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
-
 ;; (require 'clojure-mode)
 (add-hook 'clojure-mode-hook
           '(lambda ()
@@ -253,55 +254,17 @@
              (electric-indent-mode -1)
 
              (define-clojure-indent
-               (div 'defun)
-               (header 'defun)
-               (section 'defun)
-               (li 'defun)
-               (img 'defun)
-               (article 'defun)
-               (ul 'defun)
-               (ol 'defun)
-               (i 'defun)
-               (p 'defun)
-               (a 'defun)
-               (script 'defun))
-
-             (define-clojure-indent
                (defroutes 'defun)
+               (simple-benchmark 'defun)
                (it 'defun)
                (describe 'defun)
-               (GET 2)
-               (POST 2)
-               (PUT 2)
-               (DELETE 2)
-               (HEAD 2)
-               (ANY 2)
                (context 2))
-
-             ;; Om Specific
-             (define-clojure-indent
-               (h1 'defun)
-               (h2 'defun)
-               (h3 'defun)
-               (h4 'defun)
-               (h5 'defun)
-               (h6 'defun)
-               (div 'defun)
-               (span 'defun)
-               (section 'defun)
-               (nav 'defun)
-               (article 'defun)
-               (input 'defun)
-               (form 'defun)
-               (textarea 'defun)
-               (ul 'defun)
-               (ol 'defun)
-               (li 'defun))
 
              (define-clojure-indent
                (it 1)
                (async 'defun)
                (fdef 'defun)
+               (fnc 'defun)
                (errlet 1)
                (maybe-let 1)
                (atomic 'defun)
@@ -343,6 +306,7 @@
 (setq abbrev-file-name             ;; tell emacs where to read abbrev
         "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -350,7 +314,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (graphql-mode yaml-mode vline undo-tree typescript toml-mode stylus-mode scss-mode scala-mode rainbow-delimiters protobuf-mode nyan-mode mustache-mode multiple-cursors markdown-mode+ leuven-theme less-css-mode jsx-mode json-mode js2-mode jinja2-mode jade-mode ipython ido-vertical-mode ido-ubiquitous ido-at-point erlang elixir-mode dockerfile-mode csv-mode cmake-mode clojure-mode charmap bind-key))))
+    (vue-mode ido-completing-read+ graphql-mode yaml-mode vline undo-tree typescript toml-mode stylus-mode scss-mode scala-mode rainbow-delimiters protobuf-mode nyan-mode mustache-mode multiple-cursors markdown-mode+ leuven-theme less-css-mode jsx-mode json-mode js2-mode jinja2-mode jade-mode ipython ido-vertical-mode ido-at-point erlang elixir-mode dockerfile-mode csv-mode cmake-mode clojure-mode charmap bind-key))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

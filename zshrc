@@ -4,7 +4,7 @@ export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
 export EDITOR=vim
 export PGCLIENTENCODING="utf8"
-export PATH="$HOME/bin:/home/niwi/.local/bin:$PATH"
+export PATH="$HOME/bin:/home/niwi/.local/bin:~/.gem/ruby/2.5.0/bin:$PATH"
 
 export BOOT_CLOJURE_VERSION=1.8.0
 export BOOT_EMIT_TARGET=no
@@ -103,7 +103,7 @@ case $TERM in
 esac
 
 bindkey -e
-
+# ee
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 #[[ -s "/home/niwi/.gvm/bin/gvm-init.sh" ]] && source "/home/niwi/.gvm/bin/gvm-init.sh"*/
 
