@@ -41,16 +41,16 @@
         multiple-cursors
         mustache-mode
         nyan-mode
-        protobuf-mode
         rainbow-delimiters
-        scala-mode
         scss-mode
         stylus-mode
         toml-mode
         typescript
         undo-tree
         vline
-        yaml-mode))
+        yaml-mode
+        solarized-theme
+        nginx-mode))
 
 ;; Look & Feel fixes
 (setq-default c-basic-offset 2)
@@ -62,13 +62,7 @@
 (setq dabbrev-case-fold-search nil)
 (setq visible-cursor nil)
 (setq x-stretch-cursor 1)
-
-(setq create-lockfiles nil) 
-;; (setq backup-directory-alist `(("." . "~/.saves")))
-;; (setq backup-directory-alist
-;;       `((".*" . ,temporary-file-directory)))
-;; (setq auto-save-file-name-transforms
-;;       `((".*" ,temporary-file-directory t)))
+(setq create-lockfiles nil)
 
 (setq confirm-kill-emacs #'y-or-n-p)
 (setq inhibit-splash-screen t)
@@ -255,6 +249,7 @@
 
              (define-clojure-indent
                (defroutes 'defun)
+               (defevent '(:defn (1)))
                (simple-benchmark 'defun)
                (it 'defun)
                (describe 'defun)
@@ -306,7 +301,6 @@
 (setq abbrev-file-name             ;; tell emacs where to read abbrev
         "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs t)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -314,7 +308,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (vue-mode ido-completing-read+ graphql-mode yaml-mode vline undo-tree typescript toml-mode stylus-mode scss-mode scala-mode rainbow-delimiters protobuf-mode nyan-mode mustache-mode multiple-cursors markdown-mode+ leuven-theme less-css-mode jsx-mode json-mode js2-mode jinja2-mode jade-mode ipython ido-vertical-mode ido-at-point erlang elixir-mode dockerfile-mode csv-mode cmake-mode clojure-mode charmap bind-key))))
+    (cider bind-key expand-region charmap clojure-mode cmake-modea csv-mode dockerfile-mode elixir-modeg erlang graphql-mode ido-at-point ido-completing-read+ ido-vertical-mode ipython jade-mode jinja2-mode js2-mode json-mode jsx-mode less-css-mode leuven-theme markdown-mode+ multiple-cursors mustache-mode nyan-mode rainbow-delimiters scss-mode stylus-mode toml-mode typescript undo-tree vline yaml-mode solarized-theme nginx-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
