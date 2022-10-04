@@ -13,7 +13,6 @@
 
 (package-initialize)
 
-
 (setq package-selected-packages
       '(bind-key
         expand-region
@@ -67,7 +66,7 @@
 (setq confirm-kill-emacs #'y-or-n-p)
 (setq inhibit-splash-screen t)
 (setq fci-rule-column 90)
-(setq fill-column 80)
+(setq fill-column 110)
 
 (electric-indent-mode -1)
 (blink-cursor-mode 0)
@@ -272,6 +271,12 @@
              (setq css-indent-offset 2)
              (electric-indent-mode -1)))
 
+(add-hook 'css-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'whitespace-cleanup nil t)
+             (setq css-indent-offset 2)
+             (electric-indent-mode -1)))
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'whitespace-cleanup nil t)
@@ -307,8 +312,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (cider bind-key expand-region charmap clojure-mode cmake-modea csv-mode dockerfile-mode elixir-modeg erlang graphql-mode ido-at-point ido-completing-read+ ido-vertical-mode ipython jade-mode jinja2-mode js2-mode json-mode jsx-mode less-css-mode leuven-theme markdown-mode+ multiple-cursors mustache-mode nyan-mode rainbow-delimiters scss-mode stylus-mode toml-mode typescript undo-tree vline yaml-mode solarized-theme nginx-mode))))
+   '(lua-mode terraform-mode cider bind-key expand-region charmap clojure-mode cmake-modea csv-mode dockerfile-mode elixir-modeg erlang graphql-mode ido-at-point ido-completing-read+ ido-vertical-mode ipython jade-mode jinja2-mode js2-mode json-mode jsx-mode less-css-mode leuven-theme markdown-mode+ multiple-cursors mustache-mode nyan-mode rainbow-delimiters scss-mode stylus-mode toml-mode typescript undo-tree vline yaml-mode solarized-theme nginx-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

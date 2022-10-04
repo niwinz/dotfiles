@@ -1,0 +1,61 @@
+[user]
+email = niwi@niwi.nz
+name = Andrey Antukh
+
+[core]
+autocrlf = false
+safecrlf = true
+
+[alias]
+co = checkout
+ci = commit
+st = status
+br = branch
+hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+type = cat-file -t
+dump = cat-file -p
+incoming = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short master..origin/master
+outgoing = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short origin/master..master
+
+[receive]
+denyCurrentBranch = warn
+
+[color]
+ui = auto
+
+[diff]
+compactionHeuristic = true
+
+[pager]
+#diff = diff-highlight | less
+#show = diff-highlight | less
+#log = diff-highlight | less
+
+[interactive]
+#diffFilter = diff-highlight
+
+[push]
+default = simple
+
+[rebase]
+autoStash = true
+stat = true
+updateRefs = true
+
+[status]
+short = true
+showUntrackedFiles = all
+
+[stash]
+showPatch = true
+
+[commit]
+#gpgsign = true
+[credential]
+helper = store
+[pull]
+rebase = false
+[gc]
+auto = 0
+[init]
+defaultBranch = main

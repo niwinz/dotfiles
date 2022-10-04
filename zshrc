@@ -5,10 +5,10 @@ export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
 export EDITOR=vim
 export PGCLIENTENCODING="utf8"
-export PATH="$HOME/bin:/home/niwi/.local/bin:$PATH"
+export PATH="$HOME/bin:/home/niwinz/.local/bin:$PATH"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export JAVA_HOME="/usr/lib/jvm/default"
+export JAVA_HOME="/usr/lib/jvm/jdk-17"
 
 bindkey -e
 bindkey    "^[[3~"          delete-char
@@ -102,3 +102,5 @@ source ~/.nvm/nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
