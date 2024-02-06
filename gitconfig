@@ -6,12 +6,14 @@ signingkey = 316A8B95
 [core]
 autocrlf = false
 safecrlf = true
+
 [alias]
 co = checkout
 ci = commit
 st = status
 br = branch
-hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+histg = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --topo-order --date=short
 type = cat-file -t
 dump = cat-file -p
 incoming = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short master..origin/master
@@ -23,12 +25,20 @@ denyCurrentBranch = warn
 [color]
 ui = auto
 
+[diff]
+compactionHeuristic = true
+
 [push]
 default = simple
+autoSetupRemote = true
 
 [rebase]
 autoStash = true
 stat = true
+updateRefs = false
+
+[remote]
+pushDefault = origin
 
 [status]
 short = true
@@ -41,3 +51,19 @@ showPatch = true
 clean = git-lfs clean %f
 smudge = git-lfs smudge %f
 required = true
+
+[commit]
+#gpgsign = true
+
+[credential]
+helper = store
+
+[pull]
+rebase = false
+	ff = only
+
+[gc]
+auto = 0
+
+[init]
+defaultBranch = main
