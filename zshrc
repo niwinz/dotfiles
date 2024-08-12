@@ -1,14 +1,12 @@
 #!/usr/bin/env zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source /var/user/powerlevel10k/powerlevel10k.zsh-theme
 
 export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
 export EDITOR=vim
 export PGCLIENTENCODING="utf8"
-export PATH="$HOME/bin:/home/niwinz/.local/bin:$PATH"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export JAVA_HOME="/usr/lib/jvm/jdk-17"
 
 bindkey -e
 bindkey    "^[[3~"          delete-char
@@ -92,13 +90,6 @@ setopt hist_ignore_space
 # esac
 
 bindkey -e
-
-# LEIN_FAST_TRAMPOLINE=y
-# export LEIN_FAST_TRAMPOLINE
-# alias cljsbuild="lein trampoline cljsbuild $@"
-# alias docker-clean="docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm"
-
-source ~/.nvm/nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
